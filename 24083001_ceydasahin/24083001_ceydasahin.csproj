@@ -1,0 +1,11 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <PropertyGroup><BaseIntermediateOutputPath>obj\Framework48\</BaseIntermediateOutputPath></PropertyGroup>
+ <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+ <PropertyGroup><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProjectGuid>{CA96CA82-3C01-4BE1-B2F2-EF842A33AE01}</ProjectGuid><OutputType>WinExe</OutputType><RootNamespace>_24083001_ceydasahin</RootNamespace><AssemblyName>24083001_ceydasahin</AssemblyName><TargetFrameworkVersion>v4.8</TargetFrameworkVersion><LangVersion>7.3</LangVersion><AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects></PropertyGroup>
+ <PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><OutputPath>bin\Debug\</OutputPath></PropertyGroup>
+ <PropertyGroup Condition=" '$(Configuration)' == 'Release' "><Optimize>true</Optimize><DebugType>pdbonly</DebugType><OutputPath>bin\Release\</OutputPath></PropertyGroup>
+ <ItemGroup><Reference Include="System"/><Reference Include="System.Core"/><Reference Include="System.Drawing"/><Reference Include="System.Windows.Forms"/></ItemGroup>
+ <ItemGroup><Compile Include="Program.cs"/><Compile Include="UrunDuzenleForm.cs"><SubType>Form</SubType></Compile><Compile Include="Form1.cs"><SubType>Form</SubType></Compile><Compile Include="Form1.Designer.cs"><DependentUpon>Form1.cs</DependentUpon></Compile><Compile Include="Models\Urun.cs"/><Compile Include="Models\StandartUrun.cs"/><Compile Include="Models\StokHareketi.cs"/><Compile Include="Services\IStokServisi.cs"/><Compile Include="Services\StokServisi.cs"/><EmbeddedResource Include="Form1.resx"><DependentUpon>Form1.cs</DependentUpon></EmbeddedResource><None Include="App.config"/></ItemGroup>
+ <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+</Project>
+
