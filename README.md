@@ -11,8 +11,8 @@ C# / Windows Forms ile bellekte ürün ve stok yönetimi. Ürün ekleme, listele
 1. Visual Studio'da `24083001_ceydasahin.sln` dosyasını açın. Eski `.slnx` dosyası yerine `.sln` dosyasını kullanın.
 2. Başlangıç projesini `24083001_ceydasahin` seçin; Release veya Debug / Any CPU yapılandırmasını kullanın.
 3. Çözümü derleyin ve F5 ile çalıştırın.
-4. Yeni/Temizle ile alanları hazırlayın. Örneğin P001, Kalem, Kırtasiye, 15, 10, 5 girip Ürün ekle'ye basın.
-5. Güncelleme için tablodan satır seçip Güncelle butonuna basın. Açılan pencerede ürün adı, kategori, birim fiyat ve kritik seviyeyi düzenleyip Kaydet seçin. İptal değişiklikleri kaydetmez; değişiklik yapılmadan Kaydet seçilirse bilgilendirme gösterilir. Stok miktarı stok giriş/çıkış butonlarıyla değiştirilir.
+4. Üstteki yeni ürün alanlarını doldurun. Örneğin P001, Kalem, Kırtasiye, 15, 10 girip Ürün ekle'ye basın.
+5. Güncelleme için tablodan satır seçip Güncelle butonuna basın. Açılan pencerede ürün kodu, ürün adı, kategori ve birim fiyatı düzenleyip Kaydet seçin. İptal değişiklikleri kaydetmez; değişiklik yapılmadan Kaydet seçilirse bilgilendirme gösterilir. Stok miktarı stok giriş/çıkış butonlarıyla değiştirilir.
 6. Uygulama kapanınca kayıtlar silinir.
 
 ## Kaynak düzeni
@@ -36,7 +36,7 @@ Constructor: Urun, StandartUrun, StokHareketi ve Form1.
 17.11.2026 tarihinde .NET Framework 4.8 Release derlemesi başarılıdır. Windows Uygulama Denetimi ilkesi EXE başlatılmasını engellediği için bu ortamda çalışma testleri ve ekran görüntüleri tamamlanamamıştır. Test listesindeki sonuçlar kullanıcı tarafından doğrulanmalıdır.
 
 ## Görseller ve rapor
-Gerçek çalışma ekran görüntüleri henüz alınmamıştır. `TAMAMLAMA_REHBERI.md` dosyası çekilecek görselleri, testleri ve rapor başlıklarını içerir. Bu kaynak paketi nihai ALMS teslimi değildir.
+Gerçek çalışma ekran görüntüleri henüz alınmamıştır. Bu kaynak paketi nihai ALMS teslimi değildir.
 
 ## GitHub
 Repository: https://github.com/ceydasahin0/24083001_CeydaSahin_StokYonetimSistemi
@@ -45,3 +45,7 @@ Repository: https://github.com/ceydasahin0/24083001_CeydaSahin_StokYonetimSistem
 
 ## Stok girişi kullanımı
 Tablodan ürünü seçip Stok girişi düğmesine basın. Açılan pencerede Kaç adet eklenecek? alanına miktarı yazıp Ekle seçin. Yalnızca seçili ürünün stoku yazılan miktar kadar artar. İptal veya pencereyi kapatma stok değiştirmez. Stok çıkışı düğmesi de Kaç adet silinecek? penceresini açar. Girilen miktar Stoktan düş ile stoktan çıkarılır. Mevcut stoktan fazlası reddedilir; İptal stok değiştirmez.
+
+
+## Otomatik kritik stok
+Kritik değer en az 0, en fazla 10'dur. Ürünün ulaştığı en yüksek stokun %20'si yukarı yuvarlanır ve 0–10 aralığında sınırlandırılır. Örneğin en yüksek stok 20 ise kritik değer 4, 100 ise 10, başlangıç stoku 0 ise 0 olur. Bu sınır ürünün stok miktarını kısıtlamaz. Mevcut stok kritik değerin altına düştüğünde ürün kırmızıyla vurgulanır; sıfır stok her zaman Stok yok olarak uyarılır.
