@@ -8,7 +8,7 @@ C# / Windows Forms ile bellekte ürün ve stok yönetimi. Ürün ekleme, listele
 .NET Framework 4.8, C# 7.3, Windows Forms. Visual Studio 2026 Community MSBuild ile Release derlemesi başarılıdır. Ek NuGet paketi gerekmez. Visual Studio'da .NET masaüstü geliştirme iş yükü ve .NET Framework 4.8 hedefleme paketi bulunmalıdır.
 
 ## Açma ve çalıştırma
-1. Visual Studio'da `24083001_ceydasahin.sln` dosyasını açın. Eski `.slnx` dosyası yerine `.sln` dosyasını kullanın.
+1. Visual Studio'da `01_SourceCode/24083001_ceydasahin.sln` dosyasını açın. Eski `.slnx` dosyası yerine `.sln` dosyasını kullanın.
 2. Başlangıç projesini `24083001_ceydasahin` seçin; Release veya Debug / Any CPU yapılandırmasını kullanın.
 3. Çözümü derleyin ve F5 ile çalıştırın.
 4. Üstteki yeni ürün alanlarını doldurun. Örneğin P001, Kalem, Kırtasiye, 15, 10 girip Ürün ekle'ye basın.
@@ -33,15 +33,15 @@ Soyutlama: abstract Urun ve IStokServisi uygulama akışında kullanılır. Form
 Constructor: Urun, StandartUrun, StokHareketi ve Form1.
 
 ## Doğrulama durumu
-17.11.2026 tarihinde .NET Framework 4.8 Release derlemesi başarılıdır. Windows Uygulama Denetimi ilkesi EXE başlatılmasını engellediği için bu ortamda çalışma testleri ve ekran görüntüleri tamamlanamamıştır. Test listesindeki sonuçlar kullanıcı tarafından doğrulanmalıdır.
+20.11.2026 tarihinde teslim paketindeki kaynaklar .NET Framework 4.8 Release yapılandırmasında başarıyla derlenmiştir. Otomatik kritik stok hesabı ve ürün kodu güncelleme servis kontrolleri geçmiştir. Uygulama kullanımına ilişkin rapor 03_Report/Proje_Raporu.pdf içindedir.
 
 ## Görseller ve rapor
-Gerçek çalışma ekran görüntüleri henüz alınmamıştır. Bu kaynak paketi nihai ALMS teslimi değildir.
+[Proje raporu](03_Report/Proje_Raporu.pdf) ve 15 çalışma ekran görüntüsü bu depoda bulunur.
 
 ## GitHub
 Repository: https://github.com/ceydasahin0/24083001_CeydaSahin_StokYonetimSistemi
 
-Şartnamedeki ad: `24083001_CeydaSahin_InventoryManagement`. Depo adı, gizlilik, öğretim elemanı collaborator daveti ve geliştirme geçmişi teslim öncesinde kontrol edilmelidir.
+Depo kullanıcının tercihiyle Public durumundadır. Şartnamedeki Private koşulu ve depo adıyla farklılık bulunmaktadır; collaborator ve teslim koşulları ayrıca kontrol edilmelidir.
 
 ## Stok girişi kullanımı
 Tablodan ürünü seçip Stok girişi düğmesine basın. Açılan pencerede Kaç adet eklenecek? alanına miktarı yazıp Ekle seçin. Yalnızca seçili ürünün stoku yazılan miktar kadar artar. İptal veya pencereyi kapatma stok değiştirmez. Stok çıkışı düğmesi de Kaç adet silinecek? penceresini açar. Girilen miktar Stoktan düş ile stoktan çıkarılır. Mevcut stoktan fazlası reddedilir; İptal stok değiştirmez.
@@ -49,3 +49,77 @@ Tablodan ürünü seçip Stok girişi düğmesine basın. Açılan pencerede Ka�
 
 ## Otomatik kritik stok
 Kritik değer en az 0, en fazla 10'dur. Ürünün ulaştığı en yüksek stokun %20'si yukarı yuvarlanır ve 0–10 aralığında sınırlandırılır. Örneğin en yüksek stok 20 ise kritik değer 4, 100 ise 10, başlangıç stoku 0 ise 0 olur. Bu sınır ürünün stok miktarını kısıtlamaz. Mevcut stok kritik değerin altına düştüğünde ürün kırmızıyla vurgulanır; sıfır stok her zaman Stok yok olarak uyarılır.
+
+## Teslim paketi klasörleri
+- 01_SourceCode: Visual Studio çözümü, proje dosyası ve C# kaynakları.
+- 02_Application: Release EXE ve uygulama yapılandırması. Çalıştırmak için .NET Framework 4.8 gerekir.
+- 03_Report: Proje_Raporu.pdf.
+- 04_GitHub: README ve GitHub repository bağlantısı.
+
+GitHub bağlantısı ALMS ZIP tesliminin yerine geçmez.
+
+## İndirilebilir teslim paketi
+[24083001_CeydaSahin_InventoryManagement.zip](24083001_CeydaSahin_InventoryManagement.zip)
+
+## Uygulama ekran görüntüleri
+Görseller `screenshots/` klasöründedir.
+
+### 1. Ana ekran
+
+![Ana ekran](screenshots/1arayuz.jpg)
+
+### 2. Ürün adı doğrulaması
+
+![Ürün adı doğrulaması](screenshots/2urunadi.jpg)
+
+### 3. Ürün kodu doğrulaması
+
+![Ürün kodu doğrulaması](screenshots/3urunkodu.jpg)
+
+### 4. Ürün seçimi uyarısı
+
+![Ürün seçimi uyarısı](screenshots/4guncelleme.jpg)
+
+### 5. Ürün ekleme bildirimi
+
+![Ürün ekleme bildirimi](screenshots/5uruneklendi.jpg)
+
+### 6. Kategori seçimi
+
+![Kategori seçimi](screenshots/6kategori.jpg)
+
+### 7. Kategoriye göre filtreleme
+
+![Kategoriye göre filtreleme](screenshots/7kategorikisit.jpg)
+
+### 8. Ürün koduna göre arama
+
+![Ürün koduna göre arama](screenshots/8kodarama.jpg)
+
+### 9. Stok çıkışı penceresi
+
+![Stok çıkışı penceresi](screenshots/9stokcikis.jpg)
+
+### 10. Stok çıkışı bildirimi
+
+![Stok çıkışı bildirimi](screenshots/10stokc%C4%B1k%C4%B1stamam.jpg)
+
+### 11. Stok girişi bildirimi
+
+![Stok girişi bildirimi](screenshots/11stokekleme.jpg)
+
+### 12. Ürün güncelleme penceresi
+
+![Ürün güncelleme penceresi](screenshots/12guncellemeararyuz.jpg)
+
+### 13. Güncelleme bildirimi
+
+![Güncelleme bildirimi](screenshots/13guncellendi.jpg)
+
+### 14. Yetersiz stok uyarısı
+
+![Yetersiz stok uyarısı](screenshots/14stokcikart.jpg)
+
+### 15. Stok tükendiğinde ürün görünümü
+
+![Stok tükendiğinde ürün görünümü](screenshots/15stokbitti.jpg)
